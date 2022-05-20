@@ -1,0 +1,103 @@
+
+*{ margin: 0;
+padding: 0;}
+body {background-color: rgb(234, 234, 234)}
+.container{
+    background-color:rgb(255, 255, 255) ;
+    padding: 5% 8%;
+    /* align-items: center; */
+    text-align: center;
+    margin:10% 20%;
+    font-family: roboto , serif;
+}
+
+.choose_file_button{
+    /* background-color: blue; */
+   background-color: #2962ff;
+   color:white;
+    padding: 2%  ;
+    border:none;
+    border-radius: 5px;
+    width: 30%;
+    
+}
+
+.choose_file{
+  display: none;
+  position: absolute;
+
+}
+.upload_file { 
+    padding:4%; 
+}
+.others_option { 
+    margin-right:7% ; 
+}
+.row_1{font-size: 1.1rem;
+}
+
+.row_2{opacity: 0.6;
+    font-size: 0.8rem;
+    padding-top: 7px;
+}
+.drop_here{
+    opacity: 0.6;
+    font-style: italic;
+}
+
+
+/* //------ */
+
+ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color: #111111;
+    font-family: "Rubik","Open Sans",sans-serif;
+    font-size: 13px;
+    color:white
+  }
+  
+  li  {
+    float: left;
+    display: block;
+    color: white;
+    text-align: center;
+     padding: 16px ; 
+    text-decoration: none;
+  }
+  
+  li:hover {
+    background-color: #333333;
+  }
+  
+.dropdown-content {
+    margin-top: 16px;
+    margin-left: -16px;
+    display: none;
+    position: absolute;
+    
+    background-color: #333333;
+    min-width: 160px;
+    z-index: 1;  
+
+    
+  }
+  
+  .dropdown-content a {
+      
+    color: white;
+    padding: 8px 12px;
+    text-decoration: none;
+    display: block;
+    text-align: left;
+  }
+  
+  li:hover .dropdown-content {
+    display: block;
+   
+  }
+  .dropdown-content a:hover {background-color: #525151}
+  
+
