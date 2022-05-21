@@ -12,7 +12,7 @@
 </head>
 <body>
 
-    <header> <ul>
+    <header> <ul class="headerdraw">
         <li class="dropbtn">Dropdown
                 <div class="dropdown-content">
                  <a href="#">Link 1</a>
@@ -57,10 +57,19 @@
 
     <div class="row_1">Choose File </div>
     <div class="row_2">from your computer</div>
-    <input  class =" choose_file" multiple type="file" >
+    <!-- <input  class =" choose_file" multiple type="file" > -->
+
+    <!-- <p class="note">Note : your browser will process the zip file, don't choose a file too big !</p> -->
+    <input type="file" id="file" name="file" class =" choose_file" multiple /><br />
+    
+    
 
  </button>
- 
+ <div id="result_block" class="hidden">
+    <h3>Content :  <h4> </h4></h3>
+    <div id="result">
+  </div>
+</div>
    <div  class="upload_file">
     <a class="others_option">from Google Drive</a>
     <a class="others_option">Dropbox</a>
@@ -70,7 +79,8 @@
    drag and drop here ...
    </div>
 </div>
-<script src="app.js"></script>
+<!-- <script type="text/javascript" src="https://fastcdn.org/FileSaver.js/1.1.20151003/FileSaver.js" ></script> -->
+<script src="samplebrw.js"></script>
 
 </body>
 </html>
