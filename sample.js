@@ -1,5 +1,4 @@
- 
- // to use button as a  virtual input source 
+// to use button as a  virtual input source 
 document.querySelector(".choose_file_button").addEventListener('click',function()
 { document.querySelector(".choose_file").click(); 
  })
@@ -8,16 +7,18 @@ document.querySelector(".choose_file_button").addEventListener('click',function(
 var JSZip = require("jszip");
 
 var FileSaver = require('file-saver');
+const { console } = require("browserify/lib/builtins");
+
 // const blob = require("blob");
 
 
 var $result = document.querySelector("#result");
 document.querySelector("#file").addEventListener("change", function(evt) 
 {
-    document.querySelector('.choose_file_button').classList.add('hidden');
-    document.querySelector('#myProgress').classList.remove('hidden');
-    // document.querySelector('#result_block').classList.remove('hidden');
-     move();
+    document.querySelector('.container').classList.add('hidden');
+    document.querySelector('.pbarbox').classList.remove('hidden');
+    // document.querySelector('#result_block').classList.remove('hidden');  
+             move();
 
     $result.innerHTML=" ";     // remove  previous content
     
@@ -88,19 +89,21 @@ document.querySelector("#file").addEventListener("change", function(evt)
     
     });
 ///progress bar 
-
+ 
 var i = 0;
+// let clear =1;
 function move() {
   if (i == 0) {
-    i = 1;
+    i = 1; 
     var elem = document.getElementById("myBar");
     var width = 1;
-    var id = setInterval(frame, 100);
+    var id = setInterval(frame, 80);
     function frame() {
       if (width >= 99) {
         clearInterval(id);
         i = 0;
-        document.querySelector('#myProgress').classList.add('hidden');
+        document.querySelector('.pbarbox').classList.add('hidden');
+        // if(clear===1)
          document.querySelector('#result_block').classList.remove('hidden');
       } else {
         width++;

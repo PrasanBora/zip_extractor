@@ -6,7 +6,10 @@ body {background-color: rgb(243, 243, 243) !important}
 .container{
     background-color:rgb(255, 255, 255) ;
     padding: 4% 7%;
+    
     /* align-items: center; */
+    position: relative;
+
     text-align: center;
     margin:10% 25%;
     font-family: roboto , serif;
@@ -120,19 +123,22 @@ text-align: left;}
 
 #myProgress {
   width: 100%;
-  background-color: rgb(231, 152, 152);
-  border-radius: 30px;
+  background-color:rgb(212, 145, 145);
+  border-radius: 5px;
+  height:20px;
+  
 }
 
 #myBar {
+  
+  height: 20px;
   width: 0%;
-  height: 25px;
-
-     background-color: rgb(20, 93, 209); /* For browsers that do not support gradients */
-  line-height: 30px;
+  background-color: rgb(20, 93, 209); /* For browsers that do not support gradients */
+  line-height: 18px;
   color: white;
   text-align: center;
-  border-radius: 30px;
+  border-radius: 5px;
+  
 }
 
 #myBar{
@@ -158,4 +164,43 @@ text-align: left;}
      100% {
        background-position: 30px 100%;
      }
+   }
+
+   .pbarbox{
+     
+     display: flex;
+     align-items: center;
+
+     margin:-30% 20% 20% 20%  ;
+     padding:3% ;
+     background-color: white;
+     border:solid;
+     border-width: 1px;
+     border-color: #dddddd;
+     border-radius: 1%;
+     /* z-index: ; */
+   }
+
+
+   #result_block{
+    margin:-28% 25% auto 25%  ;
+    padding:3%;
+    background-color: white;
+    border:solid;
+    border-width: 1px;
+    border-color: #dddddd;
+    border-radius: 1%
+
+   }
+  
+   .cancel_event{
+     background-color: grey;
+     border-radius: 2px;
+     color :white;
+     border: none;
+     padding: 7px;
+     font-size: large;
+     float: right;
+     
+     margin-left: 10px;
    }

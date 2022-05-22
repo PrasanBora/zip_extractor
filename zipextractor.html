@@ -53,7 +53,7 @@
         
       </ul></header>
 
-<div class="container">
+<div class="container ">
   <button  class =" choose_file_button">
 
      <div class="row_1">Choose File </div>
@@ -63,10 +63,6 @@
 
    </button>
 
-   <div id="result_block" class="hidden" >
-      <h3>Content :  <h4> </h4></h3>
-      <div id="result"> </div>
-   </div>
    <div  class="upload_file">
      <a class="others_option">from Google Drive</a>
      <a class="others_option">Dropbox</a>
@@ -76,11 +72,23 @@
    <div class="drop_here"> drag and drop here ...</div>
 </div>
 
-<div>
-    <div id="myProgress" class="hidden">
-        <div id="myBar">1%</div>
+<!-- ///////// progress bar ////////////// -->
+
+<div class="pbarbox hidden" >
+    <div id="myProgress" >
+        <div id="myBar">0%</div> 
       </div>
+      <button  class=" cancel_event "type="button">Cancel</button>  
 </div>
+
+<!-- ////////// result /filecontent ///////// -->
+
+<div id="result_block" class="hidden" >
+    <h3>Content :  <h4> </h4></h3>
+    <div id="result"> </div>
+    <!-- <button  class=" cancel_event "type="button"> Extract another archive</button> -->
+</div>
+
   <!-- <script type="text/javascript" src="https://fastcdn.org/FileSaver.js/1.1.20151003/FileSaver.js" ></script> -->
   <script src="samplebrw.js"></script>
 
