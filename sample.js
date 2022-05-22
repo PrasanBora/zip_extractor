@@ -17,8 +17,9 @@ document.querySelector("#file").addEventListener("change", function(evt)
 {
     document.querySelector('.container').classList.add('hidden');
     document.querySelector('.pbarbox').classList.remove('hidden');
-    // document.querySelector('#result_block').classList.remove('hidden');  
-             move();
+    document.querySelector('#result_block').classList.add('hidden');
+      
+            clear=1; move();
 
     $result.innerHTML=" ";     // remove  previous content
     
@@ -91,7 +92,7 @@ document.querySelector("#file").addEventListener("change", function(evt)
 ///progress bar 
  
 var i = 0;
-// let clear =1;
+ let clear =1;
 function move() {
   if (i == 0) {
     i = 1; 
@@ -103,7 +104,7 @@ function move() {
         clearInterval(id);
         i = 0;
         document.querySelector('.pbarbox').classList.add('hidden');
-        // if(clear===1)
+        if(clear===1)
          document.querySelector('#result_block').classList.remove('hidden');
       } else {
         width++;
@@ -114,9 +115,10 @@ function move() {
   }
 }
 
-document.querySelector(".cancel_event").addEventListener('click',()=>{
+document.querySelectorAll(".cancel_event").forEach(cancel_event => cancel_event.addEventListener('click',()=>{
+    clear=0;
     document.querySelector('.pbarbox').classList.add('hidden');
      document.querySelector('#result_block').classList.add('hidden');
-     document.querySelector('.container').classList.add('hidden');
+     document.querySelector('.container').classList.remove('hidden');
 
-})
+}))

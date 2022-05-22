@@ -1,7 +1,19 @@
 
 *{ margin: 0 ;
 padding: 0  ; }
-body {background-color: rgb(243, 243, 243) !important}
+
+.hidden{
+  visibility: hidden;
+}
+
+.unhidden{
+  visibility: none;
+}
+
+
+body {background-color: rgb(243, 243, 243) !important;
+  font-family: "Open Sans",sans-serif,roboto , serif;}
+
 
 .container{
     background-color:rgb(255, 255, 255) ;
@@ -20,7 +32,7 @@ body {background-color: rgb(243, 243, 243) !important}
 }
 
 .choose_file_button{
-    /* background-color: blue; */
+   
    background-color: #2962ff;
    color:white;
     padding: 3% 4% 0% 4%  ;
@@ -112,18 +124,11 @@ ul.headerdraw {
 li {list-style-type: none;
 text-align: left;}
 
-.hidden{
-  visibility: hidden;
-}
-
-.unhidden{
-  visibility: none;
-}
-
+/* progress bar  */
 
 #myProgress {
   width: 100%;
-  background-color:rgb(212, 145, 145);
+  background-color:rgb(211, 206, 206);
   border-radius: 5px;
   height:20px;
   
@@ -173,18 +178,23 @@ text-align: left;}
 
      margin:-30% 20% 20% 20%  ;
      padding:3% ;
-     background-color: white;
-     border:solid;
-     border-width: 1px;
-     border-color: #dddddd;
-     border-radius: 1%;
-     /* z-index: ; */
+     
    }
 
 
    #result_block{
     margin:-28% 25% auto 25%  ;
-    padding:3%;
+    padding:2.5%;
+   
+   }
+
+   #result{
+     padding-top: 5%  !important;
+     padding-bottom: 5%;
+   }
+
+   #result_block , .pbarbox{
+    
     background-color: white;
     border:solid;
     border-width: 1px;
@@ -192,17 +202,22 @@ text-align: left;}
     border-radius: 1%
 
    }
+
+
   
    .cancel_event {
-     background-color: grey;
+     background-color: #6c757d;
      border-radius: 2px;
      color :white;
      border: none;
      padding: 7px;
      font-size: large;
-     float: right;
+     /* float: right; */
      
      margin-left: 10px;
    }
 
-  #result.button {float:left}
+  #again {float:left;
+  font-size: 15px;
+  margin: -7px auto 30px ;
+}
