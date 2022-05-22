@@ -1,6 +1,8 @@
-
+ 
+ // to use button as a  virtual input source 
 document.querySelector(".choose_file_button").addEventListener('click',function()
-{ document.querySelector(".choose_file").click();  })
+{ document.querySelector(".choose_file").click(); 
+ })
 
 
 var JSZip = require("jszip");
@@ -11,9 +13,9 @@ var JSZip = require("jszip");
 var $result = document.querySelector("#result");
 document.querySelector("#file").addEventListener("change", function(evt) 
 {
-   
-    $result.innerHTML=" ";     // remove content
-
+    document.querySelector('.choose_file_button').classList.add('hidden');
+    $result.innerHTML=" ";     // remove  previous content
+    
 
     // Closure to capture the file information.
     function handleFile(f) {
@@ -29,7 +31,7 @@ document.querySelector("#file").addEventListener("change", function(evt)
         $result.append($title);
         $result.append($fileContent);
  
-            JSZip.loadAsync(f)                                   // 1) read the Blob
+            JSZip.loadAsync(f)        // unzip the file content
             .then(function(zip) {
      
               zip.forEach(function (relativePath, zipEntry) {
@@ -37,21 +39,32 @@ document.querySelector("#file").addEventListener("change", function(evt)
                  let linode = document.createElement('li');
                   linode.appendChild(document.createTextNode(zipEntry.name));
                 
-                  linode.addEventListener('click',()=>{ });
-                        let link=document.createElement('a');
-                        linode.appendChild(link);
-                        link.href=relativePath;
-                        link.download=zipEntry.name;
-                        link.click();
+                  $fileContent.appendChild(linode);
+
+                  //download file on click on entry
+
+                  let link=document.createElement('a');
+                    linode.appendChild(link);
+                    link.href=relativePath;
+                    link.download=zipEntry.name;
+
+                  linode.addEventListener('click',()=>{ 
+                    // let link=document.createElement('a');
+                    // linode.appendChild(link);
+                    // link.href=relativePath;
+                    // link.download=zipEntry.name;
+                    link.click();
+                              });
+                        
 
                   ///--------
-                 $fileContent.appendChild(linode);
+                //  $fileContent.appendChild(linode);
                 
-                 console.log(zipEntry.name);
+                 console.log(zipEntry);
                  console.log(relativePath);
                 });
  
-            },      function (e) 
+            },      function (e)   //if file format is not supported 
                  {
                    let divnode=  document.createElement('div');
                    divnode.appendChild(document.createTextNode("Error reading " + f.name ));
@@ -60,7 +73,7 @@ document.querySelector("#file").addEventListener("change", function(evt)
             );
     
                 }
-    var files = evt.target.files;
+    var files = evt.target.files;  //using loop for case of multiple files selected 
     for (var i = 0; i < files.length; i++) {
         handleFile(files[i]);
     }

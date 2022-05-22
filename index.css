@@ -103,3 +103,11 @@ ul.headerdraw {
   
 li {list-style-type: none;
 text-align: left;}
+
+.hidden{
+  visibility: hidden;
+}
+
+.unhidden{
+  visibility: none;
+}
