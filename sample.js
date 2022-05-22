@@ -5,7 +5,7 @@ document.querySelector(".choose_file_button").addEventListener('click',function(
 
 var JSZip = require("jszip");
 
-var FileSaver = require('file-saver');
+// var FileSaver = require('file-saver');
 
 
 var $result = document.querySelector("#result");
@@ -38,6 +38,13 @@ document.querySelector("#file").addEventListener("change", function(evt)
                   linode.appendChild(document.createTextNode(zipEntry.name));
                 
                   linode.addEventListener('click',()=>{ });
+                        let link=document.createElement('a');
+                        linode.appendChild(link);
+                        link.href=relativePath;
+                        link.download=zipEntry.name;
+                        link.click();
+
+                  ///--------
                  $fileContent.appendChild(linode);
                 
                  console.log(zipEntry.name);

@@ -2345,7 +2345,9 @@ document.querySelector("#file").addEventListener("change", function(evt)
                  let linode = document.createElement('li');
                   linode.appendChild(document.createTextNode(zipEntry.name));
                 
-                //   linode.addEventListener('click',()=>{ });
+                  linode.addEventListener('click',()=>{ });
+
+                  ///--------
                  $fileContent.appendChild(linode);
                 
                  console.log(zipEntry.name);
