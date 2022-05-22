@@ -193,7 +193,7 @@ text-align: left;}
 
    }
   
-   .cancel_event{
+   .cancel_event {
      background-color: grey;
      border-radius: 2px;
      color :white;
@@ -204,3 +204,5 @@ text-align: left;}
      
      margin-left: 10px;
    }
+
+  #result.button {float:left}

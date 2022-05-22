@@ -6,8 +6,8 @@ document.querySelector(".choose_file_button").addEventListener('click',function(
 
 var JSZip = require("jszip");
 
-var FileSaver = require('file-saver');
-const { console } = require("browserify/lib/builtins");
+// var FileSaver = require('file-saver');
+// const  console  = require("browserify/lib/builtins");
 
 // const blob = require("blob");
 
@@ -113,3 +113,10 @@ function move() {
     }
   }
 }
+
+document.querySelector(".cancel_event").addEventListener('click',()=>{
+    document.querySelector('.pbarbox').classList.add('hidden');
+     document.querySelector('#result_block').classList.add('hidden');
+     document.querySelector('.container').classList.add('hidden');
+
+})
