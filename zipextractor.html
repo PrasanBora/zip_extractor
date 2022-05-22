@@ -9,6 +9,7 @@
         @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap');
         </style>
     <title>Document</title>
+    
 </head>
 <body>
 
@@ -53,34 +54,36 @@
       </ul></header>
 
 <div class="container">
- <button  class =" choose_file_button">
+  <button  class =" choose_file_button">
 
-    <div class="row_1">Choose File </div>
-    <div class="row_2">from your computer</div>
-    <!-- <input  class =" choose_file" multiple type="file" > -->
-
-    <!-- <p class="note">Note : your browser will process the zip file, don't choose a file too big !</p> -->
-    <input type="file" id="file" name="file" class =" choose_file" multiple /><br />
+     <div class="row_1">Choose File </div>
+     <div class="row_2">from your computer</div>
     
-    
+     <input type="file" id="file" name="file" class =" choose_file" multiple /><br />        
 
- </button>
- <div id="result_block" >
-    <h3>Content :  <h4> </h4></h3>
-    <div id="result">
-  </div>
-</div>
+   </button>
+
+   <div id="result_block" class="hidden" >
+      <h3>Content :  <h4> </h4></h3>
+      <div id="result"> </div>
+   </div>
    <div  class="upload_file">
-    <a class="others_option">from Google Drive</a>
-    <a class="others_option">Dropbox</a>
-    <a  class="others_option">URL</a>
+     <a class="others_option">from Google Drive</a>
+     <a class="others_option">Dropbox</a>
+     <a  class="others_option">URL</a>
    </div>
-   <div class="drop_here">
-   drag and drop here ...
-   </div>
+
+   <div class="drop_here"> drag and drop here ...</div>
 </div>
-<!-- <script type="text/javascript" src="https://fastcdn.org/FileSaver.js/1.1.20151003/FileSaver.js" ></script> -->
-<script src="samplebrw.js"></script>
+
+<div>
+    <div id="myProgress" class="hidden">
+        <div id="myBar">1%</div>
+      </div>
+</div>
+  <!-- <script type="text/javascript" src="https://fastcdn.org/FileSaver.js/1.1.20151003/FileSaver.js" ></script> -->
+  <script src="samplebrw.js"></script>
 
 </body>
-</html>
+
+ </html>

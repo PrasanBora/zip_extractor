@@ -7,13 +7,18 @@ document.querySelector(".choose_file_button").addEventListener('click',function(
 
 var JSZip = require("jszip");
 
-// var FileSaver = require('file-saver');
+var FileSaver = require('file-saver');
+// const blob = require("blob");
 
 
 var $result = document.querySelector("#result");
 document.querySelector("#file").addEventListener("change", function(evt) 
 {
     document.querySelector('.choose_file_button').classList.add('hidden');
+    document.querySelector('#myProgress').classList.remove('hidden');
+    // document.querySelector('#result_block').classList.remove('hidden');
+     move();
+
     $result.innerHTML=" ";     // remove  previous content
     
 
@@ -44,24 +49,27 @@ document.querySelector("#file").addEventListener("change", function(evt)
                   //download file on click on entry
 
                   let link=document.createElement('a');
-                    linode.appendChild(link);
+                   
                     link.href=relativePath;
                     link.download=zipEntry.name;
+                    linode.appendChild(link);
 
                   linode.addEventListener('click',()=>{ 
-                    // let link=document.createElement('a');
-                    // linode.appendChild(link);
-                    // link.href=relativePath;
-                    // link.download=zipEntry.name;
+                   
+
+                    // var file = new File([zipEntry], zipEntry.name);
+                    //     saveAs(file);
+
+                    // var blob=new Blob ([zipEntry]);saveAs(blob,zipEntry.name);
                     link.click();
                               });
                         
 
                   ///--------
-                //  $fileContent.appendChild(linode);
+               
                 
-                 console.log(zipEntry);
-                 console.log(relativePath);
+                //  console.log(zipEntry);
+                //  console.log(relativePath);
                 });
  
             },      function (e)   //if file format is not supported 
@@ -78,5 +86,27 @@ document.querySelector("#file").addEventListener("change", function(evt)
         handleFile(files[i]);
     }
     
-//////////////////////////
     });
+///progress bar 
+
+var i = 0;
+function move() {
+  if (i == 0) {
+    i = 1;
+    var elem = document.getElementById("myBar");
+    var width = 1;
+    var id = setInterval(frame, 100);
+    function frame() {
+      if (width >= 99) {
+        clearInterval(id);
+        i = 0;
+        document.querySelector('#myProgress').classList.add('hidden');
+         document.querySelector('#result_block').classList.remove('hidden');
+      } else {
+        width++;
+        elem.style.width = width + "%";
+        elem.innerHTML = width  + "%";
+      }
+    }
+  }
+}
