@@ -1,7 +1,9 @@
-// to use button as a  virtual input source 
-document.querySelector(".choose_file_button").addEventListener('click',function()
-{ document.querySelector(".choose_file").click(); 
- })
+
+
+let $result = document.querySelector("#result");
+let container =document.querySelector('.container');
+let progress = document.querySelector('.pbarbox');
+let resultDisplay = document.querySelector('#result_block');
 
 
 var JSZip = require("jszip");
@@ -12,12 +14,16 @@ var JSZip = require("jszip");
 // const blob = require("blob");
 
 
-var $result = document.querySelector("#result");
+// to use button as a  virtual input source 
+document.querySelector(".choose_file_button").addEventListener('click',function()
+{ document.querySelector(".choose_file").click(); 
+ })
+
 document.querySelector("#file").addEventListener("change", function(evt) 
 {
-    document.querySelector('.container').classList.add('hidden');
-    document.querySelector('.pbarbox').classList.remove('hidden');
-    document.querySelector('#result_block').classList.add('hidden');
+    container.classList.add('hidden');
+    progress.classList.remove('hidden');
+    resultDisplay.classList.add('hidden');
       
             clear=1; move();
 
@@ -103,9 +109,9 @@ function move() {
       if (width >= 99) {
         clearInterval(id);
         i = 0;
-        document.querySelector('.pbarbox').classList.add('hidden');
+        progress.classList.add('hidden');
         if(clear===1)
-         document.querySelector('#result_block').classList.remove('hidden');
+         resultDisplay.classList.remove('hidden');
       } else {
         width++;
         elem.style.width = width + "%";
@@ -117,8 +123,8 @@ function move() {
 
 document.querySelectorAll(".cancel_event").forEach(cancel_event => cancel_event.addEventListener('click',()=>{
     clear=0;
-    document.querySelector('.pbarbox').classList.add('hidden');
-     document.querySelector('#result_block').classList.add('hidden');
-     document.querySelector('.container').classList.remove('hidden');
+     progress.classList.add('hidden');
+     resultDisplay.classList.add('hidden');
+     container.classList.remove('hidden');
 
 }))
