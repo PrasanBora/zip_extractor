@@ -9,9 +9,6 @@ let resultDisplay = document.querySelector('#result_block');
 var JSZip = require("jszip");
 
 // var FileSaver = require('file-saver');
-// const  console  = require("browserify/lib/builtins");
-
-// const blob = require("blob");
 
 
 // to use button as a  virtual input source 
@@ -21,13 +18,13 @@ document.querySelector(".choose_file_button").addEventListener('click',function(
 
 document.querySelector("#file").addEventListener("change", function(evt) 
 {
-    // container.classList.add('hidden');
-    // progress.classList.remove('hidden');
-    // resultDisplay.classList.add('hidden');
+    container.classList.add('hidden');
+    progress.classList.remove('hidden');
+    resultDisplay.classList.add('hidden');
       
-    //         clear=1; move();
+            clear=1; move();
 
-    // $result.innerHTML=" ";
+    $result.innerHTML=" ";
          // remove  previous content
          var files = evt.target.files;  //using loop for case of multiple files selected 
   for (var i = 0; i < files.length; i++) {
@@ -73,19 +70,25 @@ document.querySelector("#file").addEventListener("change", function(evt)
 
                 //download file on click on entry
 
+             
+                var blob=new Blob ([zipEntry]);
+                let objectURL = URL.createObjectURL(blob);
+                //  console.log(objectURL);
                 let link=document.createElement('a');
                  
-                  link.href=relativePath;
+                  link.href=objectURL;
                   link.download=zipEntry.name;
                   linode.appendChild(link);
+
+                  
+                  // link.href=relativePath;
+                  // link.download=zipEntry.name;
+                  // linode.appendChild(link);
 
                 linode.addEventListener('click',()=>{ 
                  
 
-                  // var file = new File([zipEntry], zipEntry.name);
-                  //     saveAs(file);
-
-                  // var blob=new Blob ([zipEntry]);saveAs(blob,zipEntry.name);
+                 
                   link.click();
                             });
                       
