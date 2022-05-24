@@ -2323,80 +2323,92 @@ document.querySelector(".choose_file_button").addEventListener('click',function(
 
 document.querySelector("#file").addEventListener("change", function(evt) 
 {
-    container.classList.add('hidden');
-    progress.classList.remove('hidden');
-    resultDisplay.classList.add('hidden');
+    // container.classList.add('hidden');
+    // progress.classList.remove('hidden');
+    // resultDisplay.classList.add('hidden');
       
-            clear=1; move();
+    //         clear=1; move();
 
-    $result.innerHTML=" ";     // remove  previous content
-    
-
-    // Closure to capture the file information.
-    function handleFile(f) {
-
-        var $fileContent = document.createElement('ul');
-    
-        let $title = document.createElement('h4');
-
-        $title.appendChild(document.createTextNode(f.name));
-
-        console.log(f.name);
-        
-        $result.append($title);
-        $result.append($fileContent);
- 
-            JSZip.loadAsync(f)        // unzip the file content
-            .then(function(zip) {
-     
-              zip.forEach(function (relativePath, zipEntry) {
-                 
-                 let linode = document.createElement('li');
-                  linode.appendChild(document.createTextNode(zipEntry.name));
-                
-                  $fileContent.appendChild(linode);
-
-                  //download file on click on entry
-
-                  let link=document.createElement('a');
-                   
-                    link.href=relativePath;
-                    link.download=zipEntry.name;
-                    linode.appendChild(link);
-
-                  linode.addEventListener('click',()=>{ 
-                   
-
-                    // var file = new File([zipEntry], zipEntry.name);
-                    //     saveAs(file);
-
-                    // var blob=new Blob ([zipEntry]);saveAs(blob,zipEntry.name);
-                    link.click();
-                              });
-                        
-
-                  ///--------
-               
-                
-                //  console.log(zipEntry);
-                //  console.log(relativePath);
-                });
- 
-            },      function (e)   //if file format is not supported 
-                 {
-                   let divnode=  document.createElement('div');
-                   divnode.appendChild(document.createTextNode("Error reading " + f.name ));
-                   $result.appendChild(divnode);
-                 }
-            );
-    
-                }
-    var files = evt.target.files;  //using loop for case of multiple files selected 
-    for (var i = 0; i < files.length; i++) {
-        handleFile(files[i]);
-    }
+    // $result.innerHTML=" ";
+         // remove  previous content
+         var files = evt.target.files;  //using loop for case of multiple files selected 
+  for (var i = 0; i < files.length; i++) {
+      handleFile(files[i]);
+  }
+    // handleFile(f);
     
     });
+
+
+     // Closure to capture the file information.
+     function handleFile(f) {
+
+      container.classList.add('hidden');
+      progress.classList.remove('hidden');
+      resultDisplay.classList.add('hidden');
+        
+              clear=1; move();
+  
+      $result.innerHTML=" ";
+
+      var $fileContent = document.createElement('ul');
+  
+      let $title = document.createElement('h4');
+
+      $title.appendChild(document.createTextNode(f.name));
+
+      console.log(f.name);
+       console.log(f.filenameEncoding);
+      
+      $result.append($title);
+      $result.append($fileContent);
+
+          JSZip.loadAsync(f)        // unzip the file content
+          .then(function(zip) {
+   
+            zip.forEach(function (relativePath, zipEntry) {
+               
+               let linode = document.createElement('li');
+                linode.appendChild(document.createTextNode(zipEntry.name));
+              
+                $fileContent.appendChild(linode);
+
+                //download file on click on entry
+
+                let link=document.createElement('a');
+                 
+                  link.href=getURL(relativePath);
+                  link.download=zipEntry.name;
+                  linode.appendChild(link);
+
+                linode.addEventListener('click',()=>{ 
+                 
+
+                  // var file = new File([zipEntry], zipEntry.name);
+                  //     saveAs(file);
+
+                  // var blob=new Blob ([zipEntry]);saveAs(blob,zipEntry.name);
+                  link.click();
+                            });
+                      
+
+                ///--------
+             
+              
+              //  console.log(zipEntry);
+              //  console.log(relativePath);
+              });
+
+          },      function (e)   //if file format is not supported 
+               {
+                 let divnode=  document.createElement('div');
+                 divnode.appendChild(document.createTextNode("Error reading " + f.name ));
+                 $result.appendChild(divnode);
+               }
+          );
+  
+              }
+  
 ///progress bar 
  
 var i = 0;
@@ -2430,4 +2442,36 @@ document.querySelectorAll(".cancel_event").forEach(cancel_event => cancel_event.
      container.classList.remove('hidden');
 
 }))
+
+////////////////drag and drop 
+
+
+let file;
+
+let dragArea=document.querySelector(".drop_here");
+
+dragArea.addEventListener('dragover',(event)=>{
+console.log("file draged ");
+event.preventDefault();
+});
+
+//when file leaves area 
+
+dragArea.addEventListener('dragleave',(event)=>{});
+
+//drop
+
+dragArea.addEventListener('drop',(event)=>{
+
+  event.preventDefault();
+
+  file=event.dataTransfer.files[0];
+  console.log(file);
+
+  handleFile(file)
+  // let fileType=file.type;
+  // let fileReader =new Filereader();
+
+  ////add commmand to unzip it you can try for a new api  :)
+});
 },{"jszip":6}]},{},[7]);

@@ -56,7 +56,7 @@ document.querySelector("#file").addEventListener("change", function(evt)
       $title.appendChild(document.createTextNode(f.name));
 
       console.log(f.name);
-       console.log(f.filenameEncoding);
+      // console.log(f.target.files);
       
       $result.append($title);
       $result.append($fileContent);
