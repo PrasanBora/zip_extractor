@@ -223,7 +223,9 @@ text-align: left;}
 
 }
 
-}
+
+
+
 
 /* ///////navbar/// */
 
@@ -307,6 +309,7 @@ text-align: left;}
     }
 
     .drop_here{font-size: 8px;}
+    
 }
 
 
@@ -370,6 +373,4 @@ li.dropbtn:hover .dropdown-content {
 }
 .dropdown-content a:hover {background-color: #525151}
 
-/* li {list-style-type: none;
-text-align: left;} */
 

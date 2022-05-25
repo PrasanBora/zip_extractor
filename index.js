@@ -175,3 +175,14 @@ dragArea.addEventListener('drop',(event)=>{
 
   ////add commmand to unzip it you can try for a new api  :)
 });
+
+const icon =document.querySelector(".menu_icon");
+const hamburger=document.querySelector(".hamburger");
+const nav_menu=document.querySelector(".nav-menu")
+
+icon.addEventListener("click", ()=>{
+   hamburger.classList.toggle("hidden");
+   nav_menu.classList.toggle("hidden")
+
+   console.log("clicked");
+});
